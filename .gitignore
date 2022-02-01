@@ -9,3 +9,6 @@
 
 # GoLand stuff
 .idea/*
+
+
+.vscode/
