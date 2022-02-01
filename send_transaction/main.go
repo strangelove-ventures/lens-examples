@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
+	"os"
+
 	lens "github.com/strangelove-ventures/lens/client"
 	registry "github.com/strangelove-ventures/lens/client/chain_registry"
-	"os"
 )
 
 func main() {
