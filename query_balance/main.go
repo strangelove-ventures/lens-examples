@@ -10,15 +10,19 @@ import (
 
 func main() {
 
-	// Only need these two pieces of info to implement this examples:
+	// For this example, we only need two pices of info:
+	type walletInfo struct {
+		// Lets use the Chain Registry to automatically get accurate chain info
+		// This string must match the relevant directory name in the chain registry here:
+		// https://github.com/cosmos/chain-registry
+		chainRegName  string
+		walletAddress string
+	}
 
-	// Let us the chain Registry to query info about the chain.
-	// To utalize this feature this string matches one of the directories here: https://github.com/cosmos/chain-registry:
-	var chainRegName = "cosmoshub"
-	var walletAddress = "cosmos1fjw9hvt7dulewrn4e65u6f39arexhyk5umj0cq"
+	wallet_1 := walletInfo{"<Chain-Registry-Name>", "<Wallet Address>"}
 
 	// Fetches chain info from chain registry
-	chainInfo, err := registry.DefaultChainRegistry().GetChain(chainRegName)
+	chainInfo, err := registry.DefaultChainRegistry().GetChain(wallet_1.chainRegName)
 	if err != nil {
 		fmt.Printf("Failed to get chain info. Err: %v \n", err)
 	}
@@ -28,7 +32,7 @@ func main() {
 		fmt.Printf("Failed to get RPC endpoints on chain %s. Err: %v \n", chainInfo.ChainName, err)
 	}
 
-	// For this simple example, only two fields are needed
+	// For this simple example, only two fields from the config are needed
 	chainConfig := lens.ChainClientConfig{
 		// Key            string,
 		// ChainID        string,
@@ -46,12 +50,13 @@ func main() {
 		// Modules        []module.AppModuleBasic,
 	}
 
+	// Creates client object to pull chain info
 	chainClient, err := lens.NewChainClient(&chainConfig, os.Getenv("HOME"), os.Stdin, os.Stdout)
 	if err != nil {
 		fmt.Printf("Failed to build new chain client for %s. Err: %v \n", chainInfo.ChainID, err)
 	}
 
-	balance, err := chainClient.QueryBalanceWithAddress(walletAddress)
+	balance, err := chainClient.QueryBalanceWithAddress(wallet_1.walletAddress)
 	if err != nil {
 		fmt.Printf("Failed to query balance. Err: %v", err)
 	}

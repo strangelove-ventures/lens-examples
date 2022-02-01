@@ -1,4 +1,4 @@
-module github.com/strangelove-ventures/lens-example/query_transaction
+module github.com/strangelove-ventures/lens-examples/query_balance
 
 go 1.17
 
