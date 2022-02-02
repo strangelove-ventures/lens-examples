@@ -1,22 +1,24 @@
 # lens-examples
 
-**These are several examples on how to implement [Lens](https://github.com/strangelove-ventures/lens) into outside projects**
+Helpful info to implement [Lens](https://github.com/strangelove-ventures/lens) into your projects
 
-## **TOC**
+## **Example Implmentations:**
 * **[Query Balance](https://github.com/strangelove-ventures/lens-examples/tree/main/query_balance)**
     * This is about as basic as it gets. Querys balance of wallet address.
 
 * **[Send Transaction](https://github.com/strangelove-ventures/lens-examples/tree/main/send_transaction)**
-    * Create key and send transaction to another address.
+    * Restore key, build tranaction, broadcast transaction
 
 
-* **Indexing Example** - TODO
+* **Indexing Example** - TODO  
 
 
----
+---  
 
 
-## **Go Mod Setup**
+## **Go.mod Setup**
+
+**Note:** This is only necessary if you are importing Lens into your project. These steps have already been taken in the above examples. 
 
 Because Lens replaces some modules in its mod file, manual steps are needed to properly import Lens into a project. 
 
