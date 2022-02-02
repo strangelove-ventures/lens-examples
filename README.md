@@ -2,12 +2,12 @@
 
 Helpful info to implement [Lens](https://github.com/strangelove-ventures/lens) into your projects
 
-## **Example Implmentations:**
+## **Example Implementations:**
 * **[Query Balance](https://github.com/strangelove-ventures/lens-examples/tree/main/query_balance)**
     * This is about as basic as it gets. Querys balance of wallet address.
 
 * **[Send Transaction](https://github.com/strangelove-ventures/lens-examples/tree/main/send_transaction)**
-    * Restore key, build tranaction, broadcast transaction
+    * Restore key, build transaction, broadcast transaction
 
 
 * **Indexing Example** - TODO  
