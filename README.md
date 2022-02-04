@@ -38,7 +38,7 @@ Tidy your mod file. Run:
 go mod tidy
 ```
 
-No you can properly import lens to your go file:
+Now you can properly import lens to your go file:
 ```go
 import (
 	lens "github.com/strangelove-ventures/lens/client"
