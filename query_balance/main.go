@@ -27,6 +27,7 @@ func main() {
 		fmt.Printf("Failed to get chain info. Err: %v \n", err)
 	}
 
+	//	Use Chain info to select random endpoint
 	rpc, err := chainInfo.GetRandomRPCEndpoint()
 	if err != nil {
 		fmt.Printf("Failed to get RPC endpoints on chain %s. Err: %v \n", chainInfo.ChainName, err)

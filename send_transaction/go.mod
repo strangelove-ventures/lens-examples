@@ -1,4 +1,4 @@
-module github.com/strangelove-ventures/lens-example
+module github.com/strangelove-ventures/lens-examples
 
 go 1.17
 
