@@ -10,7 +10,8 @@ Helpful info to implement [Lens](https://github.com/strangelove-ventures/lens) i
     * Restore key, build transaction, broadcast transaction
 
 
-* **Indexing Example** - TODO  
+* **[Indexing Example (WIP)](https://github.com/strangelove-ventures/lens-examples/tree/main/sample_indexer)**
+    * Index block info at given height and log in PostgreSQL.
 
 
 ---  
