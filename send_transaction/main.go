@@ -13,16 +13,14 @@ import (
 )
 
 // Needed vars for this example:
-
 var (
 	// We will be fetching chain info from chain registry.
 	// This string must match the relevant directory name in the chain registry here:
 	// https://github.com/cosmos/chain-registry
 	chainRegName = "osmosis"
 
-	srcWalletAddress   = "osmo1fjw9hvt7dulewrn4e65u6f39arexhyk55qplwj"
 	srcWalletMnemonic  = os.Getenv("testKeyMn")
-	destination_wallet = ""
+	destination_wallet = "<wallet_address>"
 	amount_to_send     = "100000uosmo"
 )
 
@@ -69,7 +67,7 @@ func main() {
 	}
 
 	// Lets restore a key with funds and name it "source_key", this is the wallet we'll use to send tx.
-	src_address, err := chainClient.RestoreKey("source_key", srcWalletMnemonic)
+	srcWalletAddress, err := chainClient.RestoreKey("source_key", srcWalletMnemonic)
 	if err != nil {
 		log.Fatalf("Failed to restore key. Err: %v \n", err)
 	}
@@ -85,9 +83,9 @@ func main() {
 
 	//	Build transaction message
 	req := &banktypes.MsgSend{
-		FromAddress: chainClient.MustEncodeAccAddr(sdk.AccAddress(src_address)),
-		ToAddress:   chainClient.MustEncodeAccAddr(sdk.AccAddress(destination_wallet)),
-		Amount:      coins,
+		FromAddress: srcWalletAddress,
+		ToAddress:   destination_wallet,
+		Amount:      sdk.Coins{coins},
 	}
 
 	// Send message and get response
@@ -96,7 +94,7 @@ func main() {
 		if res != nil {
 			log.Fatalf("failed to send coins: code(%d) msg(%s)", res.Code, res.Logs)
 		}
-		log.Fatalf("Failed to send coins.Err: %w", err)
+		log.Fatalf("Failed to send coins.Err: %v", err)
 	}
 	fmt.Println(chainClient.PrintTxResponse(res))
 }
