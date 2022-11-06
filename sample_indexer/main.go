@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/avast/retry-go"
+	_ "github.com/lib/pq"
 	lens "github.com/strangelove-ventures/lens/client"
 	registry "github.com/strangelove-ventures/lens/client/chain_registry"
 	tmlog "github.com/tendermint/tendermint/libs/log"
@@ -24,7 +25,6 @@ var (
 )
 
 func main() {
-
 	// Fetches chain info from chain registry
 	chainInfo, err := registry.DefaultChainRegistry().GetChain("osmosis")
 	if err != nil {
@@ -44,7 +44,7 @@ func main() {
 	}
 
 	// create the database connection
-	db, err := ConnectToDatabase("postgres", "postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable")
+	db, err := ConnectToDatabase("postgres", "postgres://postgres:postgres@postgres:5432/postgres?sslmode=disable")
 	if err != nil {
 		log.Fatalf("failed to connect to database. err: %v", err)
 	}

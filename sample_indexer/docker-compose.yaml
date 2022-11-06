@@ -1,0 +1,29 @@
+version: "3"
+services:
+  lens:
+    image: stragnelove/lens:indexer
+    build: .
+    depends_on: [postgres]
+    entrypoint: sh
+    command:
+      - -cex
+      - |
+        # Wait for postgrs to come up
+        sleep 3
+        indexer
+
+  postgres:
+    image: postgres
+    command: >
+      -c max_connections=1000
+    # ports: [5432:5432]
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: &user postgres
+      POSTGRES_DB: postgres
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "postgrs", "-U", *user]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 5
