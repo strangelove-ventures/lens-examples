@@ -12,16 +12,17 @@ Helpful info to implement [Lens](https://github.com/strangelove-ventures/lens) i
 
 * **[Indexing Example (WIP)](https://github.com/strangelove-ventures/lens-examples/tree/main/sample_indexer)**
     * Index block info at given height and log in PostgreSQL.
+    * `docker compse up --build`
 
 
----  
+---
 
 
 ## **Go.mod Setup**
 
-**Note:** This is only necessary if you are importing Lens into your project. These steps have already been taken in the above examples. 
+**Note:** This is only necessary if you are importing Lens into your project. These steps have already been taken in the above examples.
 
-Because Lens replaces some modules in its mod file, manual steps are needed to properly import Lens into a project. 
+Because Lens replaces some modules in its mod file, manual steps are needed to properly import Lens into a project.
 
 First, install lens to your `GOPATH/pkg/mod` directory. Run:
 ```bash
