@@ -4,6 +4,8 @@ go 1.17
 
 require (
 	github.com/avast/retry-go v2.6.0+incompatible
+	github.com/cosmos/cosmos-sdk v0.44.5
+	github.com/cosmos/ibc-go/v2 v2.0.2
 	github.com/strangelove-ventures/lens v0.2.1
 	github.com/tendermint/tendermint v0.34.14
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
@@ -22,10 +24,8 @@ require (
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/confio/ics23/go v0.6.6 // indirect
 	github.com/cosmos/btcutil v1.0.4 // indirect
-	github.com/cosmos/cosmos-sdk v0.44.5 // indirect
 	github.com/cosmos/go-bip39 v1.0.0 // indirect
 	github.com/cosmos/iavl v0.17.3 // indirect
-	github.com/cosmos/ibc-go/v2 v2.0.2 // indirect
 	github.com/cosmos/ledger-cosmos-go v0.11.1 // indirect
 	github.com/cosmos/ledger-go v0.9.2 // indirect
 	github.com/cosmos/relayer v1.0.1-0.20220107210018-e85b7af9a30b // indirect
@@ -105,7 +105,7 @@ require (
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/ini.v1 v1.66.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
+	gopkg.in/yaml.v3 v3.0.0 // indirect
 )
 
 replace github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.2-alpha.regen.4
